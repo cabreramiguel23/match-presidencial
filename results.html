@@ -23,97 +23,101 @@
 
     <!-- Ideological Result Card -->
     <section class="result-ideology" id="resultCard">
-      <div class="result-badge" id="resultBadge">IZQUIERDA</div>
-      <h2 class="result-label" id="resultLabel">Progresista Social</h2>
-      <p class="result-desc" id="resultDesc">Tu perfil ideológico...</p>
+      <div class="result-badge izquierda" id="resultBadge">IZQUIERDA</div>
+      <h2 class="result-label" id="resultLabel">Socialista Colectivista</h2>
+      <p class="result-desc" id="resultDesc">Apoyas un Estado fuerte que controle sectores estratégicos y garantice bienestar universal. Tu visión es colectiva y transformadora: la igualdad material, la soberanía nacional y los derechos de los trabajadores son prioridades centrales.</p>
 
-      <!-- Colombia Map with Cartesian plane -->
+      <!-- MAPA COLOMBIA + PLANO CARTESIANO -->
       <div class="map-container" id="mapContainer">
-        <div class="axis-labels">
-          <span class="axis-top">IZQUIERDA</span>
-          <span class="axis-right">DERECHA</span>
-          <span class="axis-bottom">CENTRO</span>
-          <span class="axis-left">← LIBERTAD CIVIL</span>
-        </div>
-        <!-- SVG Map of Colombia + Cartesian plane -->
         <svg id="ideologyMap" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
-          <!-- Colombia detailed map -->
           <defs>
-            <radialGradient id="mapGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(212,175,55,0.05)"/>
-              <stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+            <radialGradient id="colMap" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="rgba(252,209,22,0.07)"></stop>
+              <stop offset="100%" stop-color="rgba(0,0,0,0)"></stop>
             </radialGradient>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+              <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
             </filter>
+            <filter id="softGlow">
+              <feGaussianBlur stdDeviation="2" result="blur"></feGaussianBlur>
+              <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+            </filter>
+            <filter id="mapGlow">
+              <feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur>
+              <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+            </filter>
+            <linearGradient id="mapFillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FCD116" stop-opacity="0.07"></stop>
+              <stop offset="45%" stop-color="#003893" stop-opacity="0.05"></stop>
+              <stop offset="100%" stop-color="#CE1126" stop-opacity="0.06"></stop>
+            </linearGradient>
           </defs>
 
-          <!-- Colombia geographic shape (simplified) -->
-          <g transform="translate(80, 60) scale(0.85)">
-            <path class="colombia-map-path" d="
-              M180,20 L210,15 L235,25 L255,18 L270,30 L280,20 L295,35 L310,28 L320,45 
-              L308,58 L315,72 L300,85 L312,100 L305,118 L318,132 L310,148 L325,162 
-              L318,178 L328,192 L315,208 L322,225 L308,240 L318,258 L305,272 L295,290 
-              L280,305 L265,318 L248,328 L235,345 L220,358 L205,372 L188,382 L175,395 
-              L160,388 L148,375 L135,362 L120,348 L108,335 L95,320 L85,305 L78,288 
-              L90,275 L80,260 L68,245 L75,228 L62,215 L70,198 L58,183 L65,168 
-              L80,155 L72,140 L85,125 L98,112 L88,98 L100,85 L115,72 L108,58 
-              L122,45 L138,38 L148,50 L162,42 L175,30 L180,20Z
-            " fill="rgba(255,255,255,0.04)" stroke="rgba(212,175,55,0.5)" stroke-width="1.5"/>
-            
-            <!-- Pacific coast detail -->
-            <path class="colombia-coast" d="M68,245 L55,260 L48,278 L52,295 L65,308 L75,320 L78,288" 
-                  fill="rgba(255,255,255,0.02)" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>
-            <!-- Caribbean coast -->
-            <path class="colombia-coast" d="M138,38 L155,28 L172,22 L180,20" 
-                  fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>
+          <!-- Fondo general -->
+          <rect width="500" height="600" fill="url(#colMap)"></rect>
+
+          <!-- MAPA REAL DE COLOMBIA (trazado desde silueta oficial) -->
+          <!-- Relleno con brillo -->
+          <path d="M 295.2,32.0 L 280.3,38.1 L 274.8,50.1 L 241.0,66.2 L 204.8,68.2 L 201.6,74.3 L 178.8,76.3 L 154.5,92.4 L 147.4,106.5 L 152.1,110.5 L 147.4,120.6 L 152.1,124.6 L 150.5,128.6 L 132.4,132.6 L 124.6,144.7 L 112.0,152.8 L 83.7,154.8 L 81.3,160.8 L 91.6,176.9 L 85.3,183.0 L 71.1,185.0 L 66.4,201.1 L 74.3,207.1 L 73.5,213.1 L 86.1,221.2 L 81.3,233.3 L 90.0,247.4 L 78.2,255.4 L 84.5,257.4 L 87.6,281.6 L 86.1,289.6 L 79.0,295.7 L 85.3,305.7 L 93.1,309.7 L 92.3,313.8 L 73.5,333.9 L 54.6,335.9 L 72.7,337.9 L 65.6,344.0 L 48.3,346.0 L 35.7,360.0 L 40.4,370.1 L 30.2,372.1 L 23.9,378.2 L 48.3,396.3 L 82.1,410.4 L 85.3,418.4 L 138.7,424.4 L 182.0,438.5 L 193.8,446.6 L 200.1,460.7 L 224.4,470.7 L 229.2,478.8 L 227.6,482.8 L 241.0,488.8 L 241.7,502.9 L 249.6,507.0 L 341.6,509.0 L 350.3,513.0 L 355.0,519.0 L 332.2,549.2 L 351.0,555.3 L 359.7,563.3 L 381.7,466.7 L 372.3,444.6 L 357.3,434.5 L 358.1,412.4 L 391.9,408.3 L 385.6,396.3 L 365.2,394.3 L 473.7,392.2 L 475.3,386.2 L 464.3,354.0 L 441.5,337.9 L 460.3,321.8 L 447.8,309.7 L 439.1,285.6 L 439.9,261.4 L 447.8,255.4 L 447.8,247.4 L 455.6,239.3 L 454.8,233.3 L 444.6,229.2 L 373.1,227.2 L 356.5,209.1 L 339.2,205.1 L 281.1,203.1 L 277.9,195.0 L 267.7,191.0 L 268.5,178.9 L 273.2,172.9 L 271.6,164.8 L 260.6,154.8 L 255.1,138.7 L 237.8,132.6 L 248.8,118.6 L 252.8,96.4 L 266.9,76.3 L 275.6,74.3 L 285.0,60.2 L 306.2,54.2 L 318.0,46.1 L 314.1,36.0 L 303.1,32.0 Z" fill="url(#mapFillGrad)" filter="url(#mapGlow)" opacity="0.9"></path>
+          <!-- Borde con efecto tricolor -->
+          <path d="M 295.2,32.0 L 280.3,38.1 L 274.8,50.1 L 241.0,66.2 L 204.8,68.2 L 201.6,74.3 L 178.8,76.3 L 154.5,92.4 L 147.4,106.5 L 152.1,110.5 L 147.4,120.6 L 152.1,124.6 L 150.5,128.6 L 132.4,132.6 L 124.6,144.7 L 112.0,152.8 L 83.7,154.8 L 81.3,160.8 L 91.6,176.9 L 85.3,183.0 L 71.1,185.0 L 66.4,201.1 L 74.3,207.1 L 73.5,213.1 L 86.1,221.2 L 81.3,233.3 L 90.0,247.4 L 78.2,255.4 L 84.5,257.4 L 87.6,281.6 L 86.1,289.6 L 79.0,295.7 L 85.3,305.7 L 93.1,309.7 L 92.3,313.8 L 73.5,333.9 L 54.6,335.9 L 72.7,337.9 L 65.6,344.0 L 48.3,346.0 L 35.7,360.0 L 40.4,370.1 L 30.2,372.1 L 23.9,378.2 L 48.3,396.3 L 82.1,410.4 L 85.3,418.4 L 138.7,424.4 L 182.0,438.5 L 193.8,446.6 L 200.1,460.7 L 224.4,470.7 L 229.2,478.8 L 227.6,482.8 L 241.0,488.8 L 241.7,502.9 L 249.6,507.0 L 341.6,509.0 L 350.3,513.0 L 355.0,519.0 L 332.2,549.2 L 351.0,555.3 L 359.7,563.3 L 381.7,466.7 L 372.3,444.6 L 357.3,434.5 L 358.1,412.4 L 391.9,408.3 L 385.6,396.3 L 365.2,394.3 L 473.7,392.2 L 475.3,386.2 L 464.3,354.0 L 441.5,337.9 L 460.3,321.8 L 447.8,309.7 L 439.1,285.6 L 439.9,261.4 L 447.8,255.4 L 447.8,247.4 L 455.6,239.3 L 454.8,233.3 L 444.6,229.2 L 373.1,227.2 L 356.5,209.1 L 339.2,205.1 L 281.1,203.1 L 277.9,195.0 L 267.7,191.0 L 268.5,178.9 L 273.2,172.9 L 271.6,164.8 L 260.6,154.8 L 255.1,138.7 L 237.8,132.6 L 248.8,118.6 L 252.8,96.4 L 266.9,76.3 L 275.6,74.3 L 285.0,60.2 L 306.2,54.2 L 318.0,46.1 L 314.1,36.0 L 303.1,32.0 Z" fill="none" stroke="rgba(252,209,22,0.55)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+          <!-- Borde interior sutil -->
+          <path d="M 295.2,32.0 L 280.3,38.1 L 274.8,50.1 L 241.0,66.2 L 204.8,68.2 L 201.6,74.3 L 178.8,76.3 L 154.5,92.4 L 147.4,106.5 L 152.1,110.5 L 147.4,120.6 L 152.1,124.6 L 150.5,128.6 L 132.4,132.6 L 124.6,144.7 L 112.0,152.8 L 83.7,154.8 L 81.3,160.8 L 91.6,176.9 L 85.3,183.0 L 71.1,185.0 L 66.4,201.1 L 74.3,207.1 L 73.5,213.1 L 86.1,221.2 L 81.3,233.3 L 90.0,247.4 L 78.2,255.4 L 84.5,257.4 L 87.6,281.6 L 86.1,289.6 L 79.0,295.7 L 85.3,305.7 L 93.1,309.7 L 92.3,313.8 L 73.5,333.9 L 54.6,335.9 L 72.7,337.9 L 65.6,344.0 L 48.3,346.0 L 35.7,360.0 L 40.4,370.1 L 30.2,372.1 L 23.9,378.2 L 48.3,396.3 L 82.1,410.4 L 85.3,418.4 L 138.7,424.4 L 182.0,438.5 L 193.8,446.6 L 200.1,460.7 L 224.4,470.7 L 229.2,478.8 L 227.6,482.8 L 241.0,488.8 L 241.7,502.9 L 249.6,507.0 L 341.6,509.0 L 350.3,513.0 L 355.0,519.0 L 332.2,549.2 L 351.0,555.3 L 359.7,563.3 L 381.7,466.7 L 372.3,444.6 L 357.3,434.5 L 358.1,412.4 L 391.9,408.3 L 385.6,396.3 L 365.2,394.3 L 473.7,392.2 L 475.3,386.2 L 464.3,354.0 L 441.5,337.9 L 460.3,321.8 L 447.8,309.7 L 439.1,285.6 L 439.9,261.4 L 447.8,255.4 L 447.8,247.4 L 455.6,239.3 L 454.8,233.3 L 444.6,229.2 L 373.1,227.2 L 356.5,209.1 L 339.2,205.1 L 281.1,203.1 L 277.9,195.0 L 267.7,191.0 L 268.5,178.9 L 273.2,172.9 L 271.6,164.8 L 260.6,154.8 L 255.1,138.7 L 237.8,132.6 L 248.8,118.6 L 252.8,96.4 L 266.9,76.3 L 275.6,74.3 L 285.0,60.2 L 306.2,54.2 L 318.0,46.1 L 314.1,36.0 L 303.1,32.0 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="4" stroke-linejoin="round"></path>
+
+          <!-- EJES CARTESIANOS -->
+          <line x1="250" y1="28" x2="250" y2="572" stroke="rgba(252,209,22,0.5)" stroke-width="1.2" stroke-dasharray="5,4"></line>
+          <line x1="28" y1="300" x2="472" y2="300" stroke="rgba(252,209,22,0.5)" stroke-width="1.2" stroke-dasharray="5,4"></line>
+
+          <!-- Flechas ejes -->
+          <polygon points="250,18  244,33 256,33" fill="rgba(252,209,22,0.8)"></polygon>
+          <polygon points="250,582 244,567 256,567" fill="rgba(252,209,22,0.8)"></polygon>
+          <polygon points="482,300 467,294 467,306" fill="rgba(252,209,22,0.8)"></polygon>
+          <polygon points="18,300  33,294  33,306" fill="rgba(252,209,22,0.8)"></polygon>
+
+          <!-- Etiquetas ejes -->
+          <text x="250" y="13" fill="rgba(252,209,22,0.9)" font-size="10" font-family="IBM Plex Mono" text-anchor="middle" font-weight="600">LIBERTARIO</text>
+          <text x="250" y="594" fill="rgba(252,209,22,0.9)" font-size="10" font-family="IBM Plex Mono" text-anchor="middle" font-weight="600">AUTORITARIO</text>
+          <text x="478" y="303" fill="rgba(252,209,22,0.9)" font-size="10" font-family="IBM Plex Mono" text-anchor="start" font-weight="600">DERECHA</text>
+          <text x="22" y="303" fill="rgba(252,209,22,0.9)" font-size="10" font-family="IBM Plex Mono" text-anchor="end" font-weight="600">IZQUIERDA</text>
+
+          <!-- Cuadrantes fondo sutil -->
+          <rect x="30" y="30" width="218" height="268" fill="rgba(255,90,90,0.03)" rx="4"></rect>
+          <rect x="252" y="30" width="218" height="268" fill="rgba(74,140,255,0.03)" rx="4"></rect>
+          <rect x="30" y="302" width="218" height="268" fill="rgba(255,90,90,0.02)" rx="4"></rect>
+          <rect x="252" y="302" width="218" height="268" fill="rgba(74,140,255,0.02)" rx="4"></rect>
+
+          <!-- Etiquetas cuadrantes -->
+          <text x="110" y="168" fill="rgba(255,90,90,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">IZQUIERDA</text>
+          <text x="110" y="180" fill="rgba(255,90,90,0.5)" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">Libertaria</text>
+          <text x="390" y="168" fill="rgba(74,140,255,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">DERECHA</text>
+          <text x="390" y="180" fill="rgba(74,140,255,0.5)" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">Libertaria</text>
+          <text x="110" y="430" fill="rgba(255,90,90,0.35)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">IZQUIERDA</text>
+          <text x="110" y="442" fill="rgba(255,90,90,0.35)" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">Autoritaria</text>
+          <text x="390" y="430" fill="rgba(74,140,255,0.35)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">DERECHA</text>
+          <text x="390" y="442" fill="rgba(74,140,255,0.35)" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">Autoritaria</text>
+
+          <!-- Zona centro -->
+          <ellipse cx="250" cy="300" rx="45" ry="45" fill="rgba(252,209,22,0.04)" stroke="rgba(252,209,22,0.2)" stroke-width="1" stroke-dasharray="3,3"></ellipse>
+          <text x="250" y="305" fill="rgba(252,209,22,0.5)" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">CENTRO</text>
+
+          <!-- Puntos candidatos (inyectados por JS) -->
+          <g id="candidateDots"><g transform="translate(128, 183)" style="cursor: pointer;"><circle r="7" fill="#FF5A5A" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">1</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Clara</text></g><g transform="translate(381, 417)" style="cursor: pointer;"><circle r="7" fill="#4A8CFF" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">2</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Óscar</text></g><g transform="translate(303, 222)" style="cursor: pointer;"><circle r="7" fill="#FCD116" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">3</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Raúl</text></g><g transform="translate(399, 378)" style="cursor: pointer;"><circle r="7" fill="#4A8CFF" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">4</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Miguel</text></g><g transform="translate(364, 446)" style="cursor: pointer;"><circle r="7" fill="#4A8CFF" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">5</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Sondra</text></g><g transform="translate(101, 144)" style="cursor: pointer;"><circle r="7" fill="#FF5A5A" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">6</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Iván</text></g><g transform="translate(416, 456)" style="cursor: pointer;"><circle r="7" fill="#4A8CFF" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">7</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Abelardo</text></g><g transform="translate(215, 154)" style="cursor: pointer;"><circle r="7" fill="#FCD116" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">8</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Claudia</text></g><g transform="translate(390, 388)" style="cursor: pointer;"><circle r="7" fill="#4A8CFF" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">9</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Paloma</text></g><g transform="translate(276, 203)" style="cursor: pointer;"><circle r="7" fill="#FCD116" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">10</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Sergio</text></g><g transform="translate(136, 232)" style="cursor: pointer;"><circle r="7" fill="#FF5A5A" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">11</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Roy</text></g><g transform="translate(110, 173)" style="cursor: pointer;"><circle r="7" fill="#FF5A5A" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">12</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Gustavo</text></g><g transform="translate(233, 212)" style="cursor: pointer;"><circle r="7" fill="#FCD116" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">13</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Luis</text></g><g transform="translate(119, 242)" style="cursor: pointer;"><circle r="7" fill="#FF5A5A" opacity="0.75" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle><text y="4" fill="#fff" font-size="6" font-family="IBM Plex Mono" text-anchor="middle" font-weight="700">14</text><text y="-10" fill="rgba(255,255,255,0.55)" font-size="7" font-family="IBM Plex Sans" text-anchor="middle">Carlos</text></g></g>
+
+          <!-- Punto usuario -->
+          <g id="userDot" transform="translate(98, 248)">
+            <circle r="16" fill="rgba(252,209,22,0.2)" filter="url(#glow)"></circle>
+            <circle r="9" fill="#FCD116" filter="url(#softGlow)"></circle>
+            <text y="25" fill="rgba(252,209,22,0.95)" font-size="9" font-family="IBM Plex Sans" text-anchor="middle" font-weight="700">TÚ</text>
           </g>
+          </svg>
 
-          <!-- Cartesian axes -->
-          <line x1="250" y1="30" x2="250" y2="570" stroke="rgba(212,175,55,0.6)" stroke-width="1" stroke-dasharray="4,4"/>
-          <line x1="30" y1="300" x2="470" y2="300" stroke="rgba(212,175,55,0.6)" stroke-width="1" stroke-dasharray="4,4"/>
-
-          <!-- Axis arrows -->
-          <polygon points="250,20 244,35 256,35" fill="rgba(212,175,55,0.8)"/>
-          <polygon points="250,580 244,565 256,565" fill="rgba(212,175,55,0.8)"/>
-          <polygon points="480,300 465,294 465,306" fill="rgba(212,175,55,0.8)"/>
-          <polygon points="20,300 35,294 35,306" fill="rgba(212,175,55,0.8)"/>
-
-          <!-- Quadrant labels -->
-          <text x="130" y="175" fill="rgba(255,90,90,0.7)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">IZQUIERDA</text>
-          <text x="130" y="188" fill="rgba(255,90,90,0.7)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Libertaria</text>
-          
-          <text x="375" y="175" fill="rgba(90,160,255,0.7)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">DERECHA</text>
-          <text x="375" y="188" fill="rgba(90,160,255,0.7)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Libertaria</text>
-
-          <text x="130" y="420" fill="rgba(255,90,90,0.5)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">IZQUIERDA</text>
-          <text x="130" y="433" fill="rgba(255,90,90,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Autoritaria</text>
-
-          <text x="375" y="420" fill="rgba(90,160,255,0.5)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">DERECHA</text>
-          <text x="375" y="433" fill="rgba(90,160,255,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Autoritaria</text>
-
-          <!-- Center zone -->
-          <circle cx="250" cy="300" r="40" fill="rgba(212,175,55,0.05)" stroke="rgba(212,175,55,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="250" y="305" fill="rgba(212,175,55,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">CENTRO</text>
-
-          <!-- Candidate dots (will be injected by JS) -->
-          <g id="candidateDots"></g>
-
-          <!-- User dot -->
-          <g id="userDot" transform="translate(250,300)">
-            <circle r="14" fill="var(--gold)" opacity="0.3" filter="url(#glow)"/>
-            <circle r="8" fill="var(--gold)" filter="url(#glow)"/>
-            <text y="28" fill="var(--gold)" font-size="10" font-family="IBM Plex Sans" text-anchor="middle" font-weight="600">TÚ</text>
-          </g>
-        </svg>
-
-        <!-- Map legend -->
+        <!-- Leyenda -->
         <div class="map-legend">
-          <div class="legend-item"><span class="dot gold"></span> Tú</div>
-          <div class="legend-item"><span class="dot red"></span> Candidatos izquierda</div>
-          <div class="legend-item"><span class="dot blue"></span> Candidatos derecha</div>
-          <div class="legend-item"><span class="dot green"></span> Candidatos centro</div>
+          <div class="legend-item"><span class="dot amarillo"></span> Tú</div>
+          <div class="legend-item"><span class="dot rojo"></span> Candidatos izquierda</div>
+          <div class="legend-item"><span class="dot azul"></span> Candidatos derecha</div>
+          <div class="legend-item"><span class="dot verde"></span> Candidatos centro</div>
         </div>
       </div>
     </section>
