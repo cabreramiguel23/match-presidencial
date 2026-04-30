@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuestionario · Match Presidencial Colombia 2026</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="quiz-page">
+
+  <div class="bg-layer subtle">
+    <div class="bg-map-overlay"></div>
+  </div>
+
+  <header class="quiz-header">
+    <a href="index.html" class="back-link">← Volver</a>
+    <span class="quiz-brand">🇨🇴 Match Presidencial</span>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+      <span class="progress-text" id="progressText">1 / 15</span>
+    </div>
+  </header>
+
+  <main class="quiz-main">
+    <div class="quiz-card" id="quizCard">
+      <div class="question-meta">
+        <span class="question-category" id="questionCategory">ECONOMÍA</span>
+        <span class="question-num" id="questionNum">Pregunta 1 de 15</span>
+      </div>
+      <h2 class="question-text" id="questionText">Loading...</h2>
+      <div class="options-grid" id="optionsGrid">
+        <!-- Options injected by JS -->
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-prev" id="btnPrev" onclick="prevQuestion()">← Anterior</button>
+        <button class="btn-next" id="btnNext" onclick="nextQuestion()" disabled>Siguiente →</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

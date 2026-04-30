@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resultado · Match Presidencial Colombia 2026</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body class="results-page">
+
+  <div class="bg-layer subtle"></div>
+
+  <header class="quiz-header">
+    <a href="index.html" class="back-link">← Inicio</a>
+    <span class="quiz-brand">🇨🇴 Match Presidencial</span>
+    <button class="btn-share-header" onclick="downloadResult()">⬇ Descargar resultado</button>
+  </header>
+
+  <main class="results-main">
+
+    <!-- Ideological Result Card -->
+    <section class="result-ideology" id="resultCard">
+      <div class="result-badge" id="resultBadge">IZQUIERDA</div>
+      <h2 class="result-label" id="resultLabel">Progresista Social</h2>
+      <p class="result-desc" id="resultDesc">Tu perfil ideológico...</p>
+
+      <!-- Colombia Map with Cartesian plane -->
+      <div class="map-container" id="mapContainer">
+        <div class="axis-labels">
+          <span class="axis-top">IZQUIERDA</span>
+          <span class="axis-right">DERECHA</span>
+          <span class="axis-bottom">CENTRO</span>
+          <span class="axis-left">← LIBERTAD CIVIL</span>
+        </div>
+        <!-- SVG Map of Colombia + Cartesian plane -->
+        <svg id="ideologyMap" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+          <!-- Colombia detailed map -->
+          <defs>
+            <radialGradient id="mapGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(212,175,55,0.05)"/>
+              <stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Colombia geographic shape (simplified) -->
+          <g transform="translate(80, 60) scale(0.85)">
+            <path class="colombia-map-path" d="
+              M180,20 L210,15 L235,25 L255,18 L270,30 L280,20 L295,35 L310,28 L320,45 
+              L308,58 L315,72 L300,85 L312,100 L305,118 L318,132 L310,148 L325,162 
+              L318,178 L328,192 L315,208 L322,225 L308,240 L318,258 L305,272 L295,290 
+              L280,305 L265,318 L248,328 L235,345 L220,358 L205,372 L188,382 L175,395 
+              L160,388 L148,375 L135,362 L120,348 L108,335 L95,320 L85,305 L78,288 
+              L90,275 L80,260 L68,245 L75,228 L62,215 L70,198 L58,183 L65,168 
+              L80,155 L72,140 L85,125 L98,112 L88,98 L100,85 L115,72 L108,58 
+              L122,45 L138,38 L148,50 L162,42 L175,30 L180,20Z
+            " fill="rgba(255,255,255,0.04)" stroke="rgba(212,175,55,0.5)" stroke-width="1.5"/>
+            
+            <!-- Pacific coast detail -->
+            <path class="colombia-coast" d="M68,245 L55,260 L48,278 L52,295 L65,308 L75,320 L78,288" 
+                  fill="rgba(255,255,255,0.02)" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>
+            <!-- Caribbean coast -->
+            <path class="colombia-coast" d="M138,38 L155,28 L172,22 L180,20" 
+                  fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>
+          </g>
+
+          <!-- Cartesian axes -->
+          <line x1="250" y1="30" x2="250" y2="570" stroke="rgba(212,175,55,0.6)" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="30" y1="300" x2="470" y2="300" stroke="rgba(212,175,55,0.6)" stroke-width="1" stroke-dasharray="4,4"/>
+
+          <!-- Axis arrows -->
+          <polygon points="250,20 244,35 256,35" fill="rgba(212,175,55,0.8)"/>
+          <polygon points="250,580 244,565 256,565" fill="rgba(212,175,55,0.8)"/>
+          <polygon points="480,300 465,294 465,306" fill="rgba(212,175,55,0.8)"/>
+          <polygon points="20,300 35,294 35,306" fill="rgba(212,175,55,0.8)"/>
+
+          <!-- Quadrant labels -->
+          <text x="130" y="175" fill="rgba(255,90,90,0.7)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">IZQUIERDA</text>
+          <text x="130" y="188" fill="rgba(255,90,90,0.7)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Libertaria</text>
+          
+          <text x="375" y="175" fill="rgba(90,160,255,0.7)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">DERECHA</text>
+          <text x="375" y="188" fill="rgba(90,160,255,0.7)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Libertaria</text>
+
+          <text x="130" y="420" fill="rgba(255,90,90,0.5)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">IZQUIERDA</text>
+          <text x="130" y="433" fill="rgba(255,90,90,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Autoritaria</text>
+
+          <text x="375" y="420" fill="rgba(90,160,255,0.5)" font-size="11" font-family="IBM Plex Mono" text-anchor="middle">DERECHA</text>
+          <text x="375" y="433" fill="rgba(90,160,255,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Autoritaria</text>
+
+          <!-- Center zone -->
+          <circle cx="250" cy="300" r="40" fill="rgba(212,175,55,0.05)" stroke="rgba(212,175,55,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="250" y="305" fill="rgba(212,175,55,0.5)" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">CENTRO</text>
+
+          <!-- Candidate dots (will be injected by JS) -->
+          <g id="candidateDots"></g>
+
+          <!-- User dot -->
+          <g id="userDot" transform="translate(250,300)">
+            <circle r="14" fill="var(--gold)" opacity="0.3" filter="url(#glow)"/>
+            <circle r="8" fill="var(--gold)" filter="url(#glow)"/>
+            <text y="28" fill="var(--gold)" font-size="10" font-family="IBM Plex Sans" text-anchor="middle" font-weight="600">TÚ</text>
+          </g>
+        </svg>
+
+        <!-- Map legend -->
+        <div class="map-legend">
+          <div class="legend-item"><span class="dot gold"></span> Tú</div>
+          <div class="legend-item"><span class="dot red"></span> Candidatos izquierda</div>
+          <div class="legend-item"><span class="dot blue"></span> Candidatos derecha</div>
+          <div class="legend-item"><span class="dot green"></span> Candidatos centro</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Score breakdown -->
+    <section class="score-breakdown">
+      <h3>Tu perfil por tema</h3>
+      <div class="score-bars" id="scoreBars">
+        <!-- Injected by JS -->
+      </div>
+    </section>
+
+    <!-- Candidate Match Section -->
+    <section class="candidates-section">
+      <h3>Compara con los candidatos</h3>
+      <p class="candidates-note">Selecciona un candidato para ver tu afinidad</p>
+
+      <!-- Candidate selector dropdown -->
+      <div class="candidate-selector">
+        <label>Seleccionar candidato:</label>
+        <div class="custom-select" id="candidateSelect">
+          <div class="select-trigger" onclick="toggleCandidateDropdown()">
+            <span id="selectedCandidateName">Elige un candidato...</span>
+            <span class="select-arrow">▾</span>
+          </div>
+          <div class="select-dropdown" id="candidateDropdown">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Match result panel -->
+      <div class="match-panel" id="matchPanel" style="display:none">
+        <div class="match-header">
+          <div class="match-avatar" id="matchAvatar">A</div>
+          <div class="match-info">
+            <h4 id="matchName">Candidato</h4>
+            <span class="match-party" id="matchParty">Partido</span>
+          </div>
+          <div class="match-pct-big" id="matchPctBig">0%</div>
+        </div>
+        <div class="match-slogan" id="matchSlogan">"Slogan"</div>
+        
+        <div class="match-bars">
+          <div class="match-bar-item" id="matchBars">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <div class="match-description" id="matchDescription">Descripción del candidato...</div>
+
+        <div class="match-actions">
+          <button class="btn-download-plan" id="btnDownloadPlan" onclick="downloadPlan()">
+            📄 Descargar Plan de Gobierno
+          </button>
+          <button class="btn-download-img" onclick="downloadResult()">
+            🖼 Descargar mi resultado
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retry / Share -->
+    <section class="final-actions">
+      <button class="btn-retry" onclick="window.location.href='quiz.html'">🔄 Volver a hacer el test</button>
+      <button class="btn-share" onclick="shareResult()">📲 Compartir en redes</button>
+    </section>
+
+  </main>
+
+  <script src="js/questions.js"></script>
+  <script src="js/candidates.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Match Presidencial Colombia 2026</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+
+  <!-- Animated background -->
+  <div class="bg-layer">
+    <div class="bg-map-overlay"></div>
+    <div class="particle" style="--x:10%;--y:20%;--d:6s;--s:4px"></div>
+    <div class="particle" style="--x:30%;--y:60%;--d:8s;--s:6px"></div>
+    <div class="particle" style="--x:70%;--y:15%;--d:5s;--s:3px"></div>
+    <div class="particle" style="--x:85%;--y:75%;--d:9s;--s:5px"></div>
+    <div class="particle" style="--x:50%;--y:45%;--d:7s;--s:4px"></div>
+    <div class="particle" style="--x:20%;--y:85%;--d:6s;--s:7px"></div>
+    <div class="particle" style="--x:90%;--y:40%;--d:10s;--s:3px"></div>
+    <div class="particle" style="--x:60%;--y:80%;--d:8s;--s:5px"></div>
+    <!-- Colombia silhouette SVG background -->
+    <svg class="colombia-bg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M200,30 L240,50 L270,40 L290,70 L310,60 L320,90 L300,120 L320,150 L310,180 L330,200 L320,230 L290,250 L300,280 L280,310 L260,340 L240,370 L210,390 L190,410 L170,390 L150,360 L130,340 L110,310 L120,280 L100,260 L80,240 L90,210 L70,190 L80,160 L100,140 L90,110 L110,90 L130,100 L150,80 L170,60 L200,30Z" 
+            fill="none" stroke="rgba(212,175,55,0.15)" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="header-flag">🇨🇴</span>
+      <span class="header-title">ELECCIONES 2026</span>
+      <span class="header-divider">|</span>
+      <span class="header-sub">Match Presidencial</span>
+    </div>
+  </header>
+
+  <!-- Hero section -->
+  <main class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Colombia · Mayo 2026</p>
+      <h1 class="hero-title">
+        <span class="line1">¿Con quién</span>
+        <span class="line2">votas<em>?</em></span>
+      </h1>
+      <p class="hero-desc">
+        Responde 15 preguntas sobre los temas que más importan a Colombia.<br/>
+        Descubre tu ideología política y qué candidato presidencial comparte tu visión.
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">15</span><span class="stat-l">Preguntas</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-n">3</span><span class="stat-l">Espectros</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-n">∞</span><span class="stat-l">Reflexión</span></div>
+      </div>
+      <a href="quiz.html" class="cta-btn">
+        <span class="cta-text">Iniciar Cuestionario</span>
+        <span class="cta-arrow">→</span>
+      </a>
+      <p class="hero-note">Anónimo · Gratuito · Sin registro</p>
+    </div>
+    <div class="hero-visual">
+      <div class="globe-ring ring1"></div>
+      <div class="globe-ring ring2"></div>
+      <div class="globe-ring ring3"></div>
+      <div class="center-emblem">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="var(--gold)" stroke-width="1.5" opacity="0.6"/>
+          <path d="M50,10 L50,90 M10,50 L90,50" stroke="var(--gold)" stroke-width="0.8" opacity="0.4"/>
+          <!-- Colombia simplified shape -->
+          <path d="M50,18 L58,22 L65,20 L68,28 L74,26 L76,34 L70,42 L75,50 L72,58 L78,64 L74,72 L66,76 L68,82 L62,88 L56,90 L50,88 L44,90 L38,88 L32,82 L34,76 L26,72 L22,64 L28,58 L25,50 L30,42 L24,34 L26,26 L32,28 L35,20 L42,22Z" 
+                fill="var(--gold)" opacity="0.2" stroke="var(--gold)" stroke-width="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </main>
+
+  <!-- How it works -->
+  <section class="how-section">
+    <h2 class="section-title">¿Cómo funciona?</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Responde</h3>
+        <p>15 preguntas sobre economía, seguridad, paz, educación y más temas clave.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Ubícate</h3>
+        <p>Te mostramos tu posición ideológica en el mapa político sobre Colombia.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Tu Match</h3>
+        <p>Compara tu perfil con los candidatos presidenciales y descarga su plan de gobierno.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Match Presidencial Colombia 2026 · Herramienta educativa no partisan · <span>acento.com.co</span></p>
+  </footer>
+
+  <script src="js/landing.js"></script>
+</body>
+</html>
